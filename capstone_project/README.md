@@ -1,10 +1,4 @@
 # DevOps Bootcamp Capstone Project
-- [DevOps Bootcamp Capstone Project](#devops-bootcamp-capstone-project)
-  - [Description](#description)
-  - [Features and Requirements](#features-and-requirements)
-  - [Guidelines](#guidelines)
-  - [Resources](#resources)
-  - [Pre-requisites](#pre-requisites)
   - [1. Setup your development environment](#1-setup-your-development-environment)
     - [Repository](#repository)
     - [Application](#application)
@@ -21,17 +15,6 @@ In this project, you will be using some of the tools and technologies you have l
 - CI pipeline using Github Actions (Including automated testing,build)
 - Update the Node JS application content using Ansible
 
-## Guidelines
-- Instruction for the project will be available on Thursday, April 6th
-- One week to deliver the project. Please deliver the project no later than Monday, April 17.
-- Send the repo link or project to talent@itjuana.com
-- After delivering the trainers will review the content, if you pass you’ll get a badge recognizing your knowledge as DevOps Engineer.
-- You’ll know the results via email from the ITJ Talent Team.
-- Any questions or comments, please post it in the [WhatsApp group](https://chat.whatsapp.com/KiirrKYAJ3SINrDn1pLZ7C)
-
-## Resources
-[Bootcamp Presentations](https://github.com/itjuana-bootcamp/DevOps/tree/main/Presentations)
-
 ## Pre-requisites
 
 * [Docker](https://docs.docker.com/desktop/) installed
@@ -44,13 +27,9 @@ In this project, you will be using some of the tools and technologies you have l
 * Code editor of your preference - [VS Code](https://code.visualstudio.com/download) recommended
 
 ## 1. Setup your development environment
-
 ### Repository
 - Go to the github repository https://github.com/itjuana-bootcamp/DevOps
 - Fork the repository
-NOTE: From here on, whenever we say repository , that refers to your forked repository.
-- Clone the repository : `git clone git@github.com:<githubaccount>/DevOps.git`
-
 ### Application
 - Go to folder `hello-world`
 - Run `npm install` .
