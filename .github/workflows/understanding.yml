@@ -10,7 +10,7 @@ on:
 jobs:
     #install app and run tests
     test:
-        name: Test job 
+        name: Test - Dockerize - Push image
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -29,11 +29,20 @@ jobs:
         - name: Run tests cases
           run: npm test
           working-directory: ./capstone_project/hello-world
+        - name: Log in to docker
+          env:
+            DOCKER_USER: ${{secrets.DOCKER_USER}}
+            DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+          run: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+          if: success()
         - name: Containerize
           run: |
-            echo "los test salieron bien y la fecha de hoy es:"
-            date
-            pwd
+            docker-compose build --tag damzts/hello-world-itj:$(date +%s)
+          working-directory: ./capstone_project
+          if: success()
+        - name: Push image to docker repo
+          run: docker push damzts/devops-bootcamp-docker
           if: success()
           
 
