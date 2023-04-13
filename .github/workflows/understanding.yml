@@ -45,7 +45,7 @@ jobs:
             context: ./capstone_project/hello-world
             file: ./Dockerfile
             push: true
-            tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-bootcamp-docker:$(date +%s)
+            tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-bootcamp-docker:latest
           if: success()
 
           
