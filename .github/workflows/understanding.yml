@@ -3,7 +3,9 @@ name: understanding workflows
 on:
     workflow_dispatch:
     push:
+        branches: [ "main" ]
     pull_request:
+        branches: [ "main" ]
 
 jobs:
     #install app and run tests
