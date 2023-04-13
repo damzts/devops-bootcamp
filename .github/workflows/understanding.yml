@@ -23,16 +23,17 @@ jobs:
           with:
             node-version: ${{ matrix.node-version }}
         - name: Install dependencies
-          run: npm ci
+#           run: npm ci didnt work, package jsons not in sync, i couldnt fix that problem so instead
+          run: npm install
           working-directory: ./capstone_project/hello-world
-#         - name: Run tests cases
-#           run: npm test
-#           working-directory: ./capstone_project/hello-world
-#         - name: Containerize
-#           run: |
-#             echo "los test salieron bien y la fecha de hoy es:"
-#             date
-#             pwd
-#           if: success()
+        - name: Run tests cases
+          run: npm test
+          working-directory: ./capstone_project/hello-world
+        - name: Containerize
+          run: |
+            echo "los test salieron bien y la fecha de hoy es:"
+            date
+            pwd
+          if: success()
           
 
