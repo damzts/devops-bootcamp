@@ -1,4 +1,4 @@
-name: Bootcamp workflow
+name: understanding workflows
 
 on: workflow_dispatch
 
