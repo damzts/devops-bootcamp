@@ -1,0 +1,11 @@
+services:
+  react-app:
+    build:
+      context: ./hello-world
+      dockerfile: Dockerfile
+    container_name: helloworld-bc-image
+    ports:
+      - "3000:80"
+
+
+  #ansible: 
