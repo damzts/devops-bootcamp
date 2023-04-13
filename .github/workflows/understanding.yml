@@ -43,7 +43,7 @@ jobs:
           uses: docker/build-push-action@v4
           with:
             context: ./capstone_project/hello-world
-            file: ./Dockerfile
+#             file: ./Dockerfile
             push: true
             tags: ${{secrets.DOCKER_USER}}/devops-bootcamp-docker:latest
           if: success()
