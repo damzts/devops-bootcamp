@@ -32,6 +32,6 @@ jobs:
             echo "los test salieron bien y la fecha de hoy es:"
             date
             pwd
-        if: sucess()
+          if: sucess()
           
 
