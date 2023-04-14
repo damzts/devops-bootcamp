@@ -24,4 +24,12 @@
             path: /path/to/file.txt
                  regexp: 'Hello World!'
                       replace: 'Hello DevOps!'
-                      
+    - name: Update Node.js application
+      copy:
+          src: /path/to/modified/index.js
+              dest: /path/to/nodejs/app/index.js 
+    - name: Restart Node.js application
+       systemd:
+            name: nodejs-app
+                 state: restarted
+
