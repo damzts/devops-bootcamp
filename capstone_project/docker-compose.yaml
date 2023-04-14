@@ -1,0 +1,19 @@
+services:
+  ansible:
+   build:
+     context: ./ansible_base
+     dockerfile: Dockerfile
+   container_name: ansible_controller
+   volumes:
+     - type: bind
+       source: ./ansible_files
+       target: /home/ansible_controller/ansible_files
+  react-app:
+    build:
+      context: ./hello-world
+      dockerfile: Dockerfile
+    container_name: helloworld-target
+    ports:
+      - "3000:80"
+
+

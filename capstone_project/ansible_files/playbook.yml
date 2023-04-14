@@ -1,0 +1,27 @@
+- name: My helloworld modify playbook
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ping Check using ping module
+      ping:
+
+    - name: Create file using command module
+      command: sudo touch /home/ansible_controller/hello.txt
+
+    - name: Create file using file module
+      file: 
+        name: /home/ansible_controller/hello1.txt
+        state: touch
+
+    - name: Replace "Hello World!" with "Hello DevOps!"
+        lineinfile:
+              path: /path/to/file.txt
+                    regexp: '^Hello World!'
+                          line: 'Hello DevOps!'
+
+    - name: Replace "Hello World!" with "Hello DevOps!"
+       replace:
+            path: /path/to/file.txt
+                 regexp: 'Hello World!'
+                      replace: 'Hello DevOps!'
+                      
