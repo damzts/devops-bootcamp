@@ -37,44 +37,10 @@ I'm aware that optimized build is whats really is supposed to be deployd, I perf
 
 Anyway, the image is a node slim, half smaller than lts itself from 1,34 Gb to 0,6 Gb. tried to use the alpine version but that doesn't even have apt-get.
 
-1. to run
+1. [`hello-world Dockerfile`](./hello-world/Dockerfile)
+2. to run
 ```
 sudo docker run -p 3000:3000 damzts/devops-bootcamp-docker
-```
-2. [`hello-world Dockerfile`](./hello-world/Dockerfile)
-```
-FROM node:lts-slim 
-
-#install dependencies
-RUN apt-get update -y \
-    && apt-get upgrade -y \
-    && apt-get install -y \
-    ssh \
-    sshpass \
-    sudo \
-    software-properties-common
-
-#configure ssh server and users
-WORKDIR /home/ansible_controller
-RUN useradd -rm -d /home/ansible_controller -s /bin/bash -g root -G sudo -u 1001 ansible_controller
-RUN echo ansible_controller:12345 | chpasswd
-RUN echo "ansible_controller ALL=(ALL:ALL) NOPASSWD: ALL" | EDITOR="tee -a" visudo
-RUN mkdir -p /home/ansible_controller/.ssh
-
-# lets run the helloworld app
-WORKDIR /usr/src/app
-# Copy dependency definitions
-COPY package.json /usr/src/app
-COPY package-lock.json /usr/src/app
-# Install dependencies
-RUN npm install #npm ci didnt work, same error as github actions
-# Get all the assets needed to run the app
-COPY . /usr/src/app
-# Expose the port the app runs in
-EXPOSE 3000
-EXPOSE 22
-# Serve the app
-CMD ["/bin/bash","-c", "service ssh start && npm start"] # a previous command can stop the next command so keep it mind.
 ```
 
 ## 3. Create a CI Pipeline
@@ -83,7 +49,7 @@ CMD ["/bin/bash","-c", "service ssh start && npm start"] # a previous command ca
 >     - Run the tests ✅
 >     - Only if tests are success, build the container ✅
 
-1. [`GitHub Workflow`](../.github/workflows)
+1. [`GitHub Workflow`](../.github/workflows/understanding.yml)
 2. [`Docker Hub image`](https://hub.docker.com/r/damzts/devops-bootcamp-docker/tags)
  
 ## 4. Update "Hello World!" to "Hello DevOps!"
@@ -104,41 +70,22 @@ CMD ["/bin/bash","-c", "service ssh start && npm start"] # a previous command ca
 ├── docker-compose.yaml
 └── Root
 ```
-### 1. to run
+
+Build two services:
+- ansible_base(controller) and bind ansible_files folder
+- hello-world(target1) and redirect helloworld_app 3000 to my 3000
+
+1.- [`docker-compose.yaml`](./docker-compose.yaml)
+2. to run
 ```
 sudo docker-compose up
 ```
-### 2. to access ansible_controller
+3. to access ansible_controller
 ```
 sudo docker exec -w /home/ansible_controller/ansible_files/ -ti ansible_controller bash
 ```
-### 3. to perfom app update
+4. to perfom app update
 ```
 ansible-playbook -i inventory.ini setHelloDevOps.yaml
 ```
-### docker-compose
-Build two services:
-- ansible controller and bind ansible_files folder
-- helloworld_app and redirect helloworld_app 3000 to my 3000
 
-```
-services:
-  ansible:
-    build:
-      context: ./ansible_base
-      dockerfile: Dockerfile
-    container_name: ansible_controller
-    volumes:
-      - type: bind
-        source: ./ansible_files
-        target: /home/ansible_controller/ansible_files
-  target1:
-    build:
-      context: ./hello-world
-      dockerfile: Dockerfile
-    container_name: helloworld_app
-    ports:
-      - "3000:3000"
-    volumes:
-      - /usr/src/app/node_modules
-```
