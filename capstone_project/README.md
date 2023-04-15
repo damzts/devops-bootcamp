@@ -17,25 +17,29 @@ In this project, you will be using some of the tools and technologies you have l
 > * Code editor of your preference - [VS Code](https://code.visualstudio.com/download) recommended
 
 ## 1. Setup your development environment
-### Repository ✅
-> - Go to the github repository https://github.com/itjuana-bootcamp/DevOps
+### Repository
+> - Go to the github repository https://github.com/itjuana-bootcamp/DevOps ✅
 > - Fork the repository ✅
-### Application ✅
+### Application
 > - Go to folder `hello-world` 
-> - Run `npm install` . 
-> - Run `npm test` . All tests need to pass.  
-> - Run `npm start` to run the application. 
+> - Run `npm install` . ✅
+> - Run `npm test` . All tests need to pass. ✅
+> - Run `npm start` to run the application. ✅
 > - Check http://localhost:3000 is reachable and displaying "Hello World!" ✅
 
 ## 2. Containerize the application
-> - Using docker, containerize the application.
-> - Build the container and run it to make the application available on http://localhost:3000
+> - Using docker, containerize the application. ✅
+> - Build the container and run it to make the application available on http://localhost:3000 ✅
 
 In the examples shown at the course, they were using an optimized "npm build" app, hosted over nginx server at default port 80.
 I decided to go with the running test environment with npm start localhost 3000 so its easier in step 4, to make changes to the app through ansible.
 I'm aware that optimized build is whats really is supposed to be deployd, I performed an ansible-playbook to update src/ in app container but extra steps made me better go easy with the test env.
 
 Anyway, the image is a node slim, half smaller than lts itself from 1,34 Gb to 0,6 Gb. tried to use the alpine version but that doesn't even have apt-get.
+1. to run
+```
+sudo docker run -p 3000:3000 damzts/devops-bootcamp-docker
+```
 ### hello-world Dockerfile
 ```
 FROM node:lts-slim 
@@ -74,10 +78,13 @@ CMD ["/bin/bash","-c", "service ssh start && npm start"] # a previous command ca
 
 ## 3. Create a CI Pipeline
 > - Create a CI pipeline which 
->     - will trigger on push and on pull request
->     - Run the tests
->     - Only if tests are success, build the container
+>     - will trigger on push and on pull request ✅
+>     - Run the tests ✅
+>     - Only if tests are success, build the container ✅
 
+1. [`Workflow`](../.github/workflows)&nbsp;<a href="../.github/workflows"></a>
+2. [`Docker image`](capstone_project)&nbsp;<a href="https://hub.docker.com/r/damzts/devops-bootcamp-docker/tags"></a>
+ 
 ### Github Actions Workflow
 ```
 name: understanding workflows
@@ -132,7 +139,7 @@ jobs:
 ```
 
 ## 4. Update "Hello World!" to "Hello DevOps!"
-> - Update the node js application to display "Hello DevOps!" instead of "Hello World!" using ansible.
+> - Update the node js application to display "Hello DevOps!" instead of "Hello World!" using ansible. ✅
 
 ```
 .
