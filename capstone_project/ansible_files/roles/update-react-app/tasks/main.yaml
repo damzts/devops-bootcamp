@@ -1,0 +1,7 @@
+- name: update react app try
+  become: yes
+  copy:
+    src: /home/ansible_controller/ansible_files/src/ 
+    dest: /usr/src/app/
+
+# changes were made, react app didnt refreshed up.

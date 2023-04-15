@@ -24,3 +24,4 @@ RUN mkdir -p /home/ansible_controller/.ssh
 
 
 CMD ["/bin/bash", "/home/ansible_controller/startup.sh"]
+

@@ -1,0 +1,6 @@
+- name: Update app (using roles) on ansible_target1 machine
+  hosts: all 
+  become: yes
+  roles:
+    - update-react-app
+
