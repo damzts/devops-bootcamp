@@ -2,10 +2,10 @@ name: understanding workflows
 #trigger on push and pull_request
 on:
     workflow_dispatch:
-    push:
-        branches: [ "main" ]
-    pull_request:
-        branches: [ "main" ]
+    #push:
+        #branches: [ "main" ]
+    #pull_request:
+        #branches: [ "main" ]
 
 jobs:
     #install app and run tests
