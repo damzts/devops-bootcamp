@@ -8,15 +8,15 @@
 
 ## Description
 In this project, you will be using some of the tools and technologies you have learned during the bootcamp.
-> Node Js application will be provided
-- Containerization using docker
-- CI pipeline using Github Actions (Including automated testing,build)
-- Update the Node JS application content using Ansible
-* [Docker](https://docs.docker.com/desktop/) installed
-* [Git](https://github.com/git-guides/install-git) installed
-* [Node JS](https://nodejs.org/en/download/package-manager/)
-* Have a [github account](https://github.com/join)
-* Code editor of your preference - [VS Code](https://code.visualstudio.com/download) recommended
+> - Node Js application will be provided
+> - Containerization using docker
+> - CI pipeline using Github Actions (Including automated testing,build)
+> - Update the Node JS application content using Ansible
+> * [Docker](https://docs.docker.com/desktop/) installed
+> * [Git](https://github.com/git-guides/install-git) installed
+> * [Node JS](https://nodejs.org/en/download/package-manager/)
+> * Have a [github account](https://github.com/join)
+> * Code editor of your preference - [VS Code](https://code.visualstudio.com/download) recommended
 
 ## 1. Setup your development environment
 ### Repository ✅
