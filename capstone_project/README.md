@@ -27,7 +27,7 @@ In this project, you will be using some of the tools and technologies you have l
 > - Run `npm start` to run the application. 
 > - Check http://localhost:3000 is reachable and displaying "Hello World!" ✅
 
-## 2. Containerize the application ✅
+## 2. Containerize the application
 > - Using docker, containerize the application.
 > - Build the container and run it to make the application available on http://localhost:3000
 
@@ -72,7 +72,7 @@ EXPOSE 22
 CMD ["/bin/bash","-c", "service ssh start && npm start"] # a previous command can stop the next command so keep it mind.
 ```
 
-## 3. Create a CI Pipeline ✅
+## 3. Create a CI Pipeline
 > - Create a CI pipeline which 
 >     - will trigger on push and on pull request
 >     - Run the tests
@@ -131,7 +131,7 @@ jobs:
           if: success()
 ```
 
-## 4. Update "Hello World!" to "Hello DevOps!" ✅
+## 4. Update "Hello World!" to "Hello DevOps!"
 > - Update the node js application to display "Hello DevOps!" instead of "Hello World!" using ansible.
 
 ```
