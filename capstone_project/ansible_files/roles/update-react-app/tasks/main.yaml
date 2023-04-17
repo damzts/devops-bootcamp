@@ -2,6 +2,7 @@
   become: yes
   copy:
     src: /home/ansible_controller/ansible_files/src/ 
-    dest: /usr/src/app/
+    dest: /usr/src/app/src
 
 # changes were made, react app didnt refreshed up.
+# i wasnt copying files in right folder, react is indeed refreshing
