@@ -33,7 +33,7 @@ In this project, you will be using some of the tools and technologies you have l
 
 In the examples shown at the course, they were using an optimized "npm build" app, hosted over nginx server at default port 80.
 I decided to go with the running test environment with npm start localhost 3000 so its easier in step 4, to make changes to the app through ansible.
-I'm aware that optimized build is whats really is supposed to be deployd, I performed an ansible-playbook to update src/ in app container but extra steps made me better go easy with the test env.
+I'm aware that optimized build is whats really is supposed to be deployd, plus I performed an ansible-playbook to update /src folder in app container.
 
 Anyway, the image is a node slim, half smaller than lts itself from 1,34 Gb to 0,6 Gb. tried to use the alpine version but that doesn't even have apt-get.
 
